@@ -1,7 +1,12 @@
 const http = require('http')
+const fs = require('fs')
 
-http.createServer((req, res) => {
-	console.log('Hello world')
+const server = http.createServer((req, res) => {
+	console.log (req.url)
+	const body = req.url === '/styles.css'
+    ? fs.readFileSync('./styles.css')
+    : fs.readFileSync('./index.html')
+	res.end(body)
 })
 server.listen(3000)
 
