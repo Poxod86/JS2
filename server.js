@@ -3,9 +3,15 @@ const fs = require('fs')
 
 const server = http.createServer((req, res) => {
 	console.log (req.url)
-	const body = req.url === '/styles.css'
-    ? fs.readFileSync('./styles.css')
-    : fs.readFileSync('./index.html')
+	const body = req.url === '/style.css'
+	?fs.readFileSync('./public/style.css')
+	:	fs.readFileSync('./public/index.html');
+	
+ //
+	//} else {
+
+
+	//} 
 	res.end(body)
 })
 server.listen(3000)
