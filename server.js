@@ -3,11 +3,15 @@ const fs = require('fs')
 
 const server = http.createServer((req, res) => {
 	console.log (req.url)
-	const body = req.url === '/style.css'
-	?fs.readFileSync('./public/style.css')
-	:	fs.readFileSync('./public/index.html');
-	
- //
+	const body = req.url //=== '/style.css'
+	//?
+	//:	
+	if (req.url === '/style.css') {
+		fs.readFileSync('./public/style.css')
+	} else {
+		fs.readFileSync('./public/index.html');
+	}
+    return
 	//} else {
 
 
